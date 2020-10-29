@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assignment 1: Shankar Ghimire</title>
+<script defer src="./js/main.js"></script>
+<link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+	<div class="container">
+
+		<header>
+			<h1>Shankar Ghimire</h1>
+			
+			<h3>Enterprise Java Development</h3>
+		</header>
+		<nav>
+             <ul class="flex-list">
+                <li class="active"> <a href="/"><i class="fa fa-home" aria-hidden="true"></i>Home</a> </li>
+                <li> <a href="/assignment1"><i class="fa fa-book" aria-hidden="true"></i>Assignment-01</a> </li>
+                <li> <a href="#"><i class="fa fa-book" aria-hidden="true"></i>Java Mid-Term </a> 
+                	<div class="sub-menu1">
+	                    <ul class="dropdown-menu">
+	                        <li><a href="/midTermPartA">Part-A</a></li>
+	                        <li><a href="/midTermPartB">Part-B</a></li>                       
+	                    </ul>
+                    </div>
+                </li>
+                <li> <a href="/contact"><i class="fa fa-phone" aria-hidden="true"></i>Contact</a> </li>
+                <li> <a href="/aboutus">About Us</a> </li>
+            </ul>
+		</nav>
+		<main>
+			<div class="main-div">
+				<h1>Assignment: 01</h1>
+				<hr class="main-hr">
+			</div>
+			<section class="form-section">
+				<h2>Sparse Matrix Generation</h2>
+				<div id="error"></div>
+				<form id="form-matrix" action="#" th:action="@{/add}" th:object="${objCSRFormat}"  method="get" >
+				<fieldset class="outer-fieldset">
+					<legend>Compressed Sparce Row Format for Sparce Matrix:</legend>
+					<fieldset class="inner-fieldset">	
+						<label>Read Matrix from file ? <input type="checkbox" name="readFromFile" id="readFromFile" th:field="*{readFromFile}"></input> </label>
+					</fieldset>
+					<fieldset class="inner-fieldset">
+						<legend>Enter Matrix Size (Rows & Columns): </legend>
+							<!--  <label>Enter the size of matrix : </label>	-->	
+					<label for="rowSize">Rows:  </label> <input type="number" name="rowSize" id="rowSize" min="1" th:field="*{rowSize}"></input> <span id="errorRowSize"></span>
+					<label for="colSize">Columns: </label> <input type="number" name="colSize" id="colSize" min="1" th:field="*{colSize}"></input>
+					
+					</fieldset>		
+					<fieldset class="inner-fieldset">
+						<legend>Enter the Threshold value: </legend>
+						<label for="thresHold">Value  </label> <input type="number" min=0.0  max=1.0 step = 0.1 name="thresHold" id="thresHold" th:field="*{thresHold}"> 
+					<!-- 
+					<label for="maxRange">Max. Value    </label> <input type="text" name="maxRange" id="maxRange" th:field="*{maxRange}">
+					 -->
+					</fieldset>
+										
+					<fieldset class="inner-fieldset">
+						<legend>Choose an Option for output : </legend>
+						<select id="userOption" name="userOption" th:field="*{userOption}">
+							<option th:each="c:*{availableOptions}"      th:value="${c}" th:text="${c}"></option>
+						</select>
+						<span id="errorUserOption"></span>
+					</fieldset>					
+					<fieldset class="inner-fieldset">
+						<input type="submit" value="Submit">
+					</fieldset>
+				
+					</fieldset>
+				</form>
+			</section>
+		</main>
+		<footer> Copy right &copy;Shankar Ghimire </footer>
+	</div>
+	
+	
+</body>
+</html>

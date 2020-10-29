@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring Boot: Shankar Ghimire</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>      		
+        	<h1>Shankar Ghimire</h1>        	
+        	<h3>Enterprise Java Development</h3>       
+        </header>
+        <nav>
+            <ul class="flex-list">
+                <li class="active"> <a href="/"><i class="fa fa-home" aria-hidden="true"></i>Home</a> </li>
+                <li> <a href="/assignment1"><i class="fa fa-book" aria-hidden="true"></i>Assignment-01</a> </li>
+                <li> <a href="#"><i class="fa fa-book" aria-hidden="true"></i>Java Mid-Term </a> 
+                	<div class="sub-menu1">
+	                    <ul class="dropdown-menu">
+	                        <li><a href="/midTermPartA">Part-A</a></li>
+	                        <li><a href="/midTermPartB">Part-B</a></li>                       
+	                    </ul>
+                    </div>
+                </li>
+                <li> <a href="/contact"><i class="fa fa-phone" aria-hidden="true"></i>Contact</a> </li>
+                <li> <a href="/aboutus">About Us</a> </li>
+            </ul>
+        </nav>
+        <main >
+			<div>
+				<h1 class="main-h1">Java Enterprise Development</h1>
+				<div class="main-image">
+					<img alt="image" th:src="@{images/MtEverest.jpg}" width="400px" />	
+					<h4>Climbing the Mt.Everest of Spring Boot under the leadership, supervision and guidance of Professor Dario Guiao!</h4>
+				</div>
+				<div class="main-list">
+					<ul>
+						<li>Spring Boot</li>
+						<li>ThymeLeaf</li>
+						<li>Lombok</li>
+						<li>MySQL</li>
+					</ul>
+				</div>
+		
+			</div>
+        </main>
+        <footer>
+            Copy right &copy;Shankar Ghimire
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 1: Shankar Ghimire</title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+    <div class="container">
+ 
+        <header>
+       		
+       		
+        	<h1>Shankar Ghimire</h1>
+        	
+        	<h3>Enterprise Java Development</h3>
+        
+        </header>
+        <!-- 
+        <nav>
+        
+            <ul>
+                <li> <a href="/">Home</a> </li>
+                <li> <a href="/output">Output</a> </li>
+                <li> <a href="/contact">Contact</a> </li>
+                <li> <a href="/aboutus">About Us</a> </li>
+            </ul>
+             
+        </nav>
+        -->
+        <main>
+			<div>
+				<a href="/">Back</a> 
+				<h1>Output</h1>
+				<hr>
+			</div>
+			<div>
+			<p> 
+				Rows(m) : <span th:text="${objCSRFormat.rowSize}"></span>&nbsp;&nbsp; &nbsp;&nbsp;Cols (n): <span th:text= "${objCSRFormat.colSize}" ></span>
+			</p>
+			Your Choice is : <span th:text="${objCSRFormat.userOption}"></span>			
+			</p>
+			<h4>Using Array:</h4>
+			<p th:if="${objCSRFormat.userOption}=='V'">V: <span th:each="v:${objCSRFormat.arrV}"  th:text="${v}+', '"></span></p>
+			<p th:if="${objCSRFormat.userOption}=='J'">J: <span th:each="j:${objCSRFormat.arrJ}"  th:text="${j}+', '"></span></p>
+			<p th:if="${objCSRFormat.userOption}=='I'">I: <span th:each="i:${objCSRFormat.arrI}"  th:text="${i}+', '"></span></p>		
+			<h4>Using ArrayList:</h4>
+			<p th:if="${objCSRFormat.userOption}=='V'">V: <span th:text="${objCSRFormat.listV}"></span></p>
+			<p th:if="${objCSRFormat.userOption}=='J'">J: <span th:text="${objCSRFormat.listJ}"></span></p>
+			<p th:if="${objCSRFormat.userOption}=='I'">I: <span th:text="${objCSRFormat.listI}"></span></p>
+			<!-- 
+			<p>
+				V: <span th:text="${objCSRFormat.listV}"></span>
+			</p>
+			<p>
+				J: <span th:text="${objCSRFormat.listJ}"></span>
+			</p>
+			<p>
+				I: <span th:text="${objCSRFormat.listI}"></span>
+			</p>
+			 -->
+			</div>
+			<br><br>
+			<hr>
+		
+        </main>
+        <footer>
+            Copy right &copy;Shankar Ghimire
+        </footer>
+    </div>
+</body>
+</html>

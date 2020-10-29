@@ -1,0 +1,287 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+
+body{
+    
+    font-family:  verdana, Arial, sans-serif; 
+    background-color: lightgray;
+    
+}
+
+h1{
+	font-size: 1.2rem;
+}
+.container{
+    background-color: #ffffff;
+    width: 90%;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 5px;
+}
+header{
+	text-align: center;
+	 color: #0000ff;
+	  border-bottom: 2px solid lightgray;
+	  margin-bottom: 10px;
+}
+nav{
+	background-color: #10669f;
+	text-align: center;
+} 
+nav ul {
+	display: block;
+}
+nav .fa{
+    margin-right: 4px;
+}
+nav ul li{
+	width: 100%;
+    list-style-type: none;
+    border-bottom: 1px solid rgb(247, 226, 226);
+    margin: 2px 0;
+    padding: 13px;
+}
+
+nav ul li a{
+	display: block;
+	color: #ffffff;
+	font-size: 0.7rem;
+	padding: 3px 0;
+	margin: 2px 0px;	
+	text-decoration: none;
+}
+
+nav ul li a:hover{
+	font-weight: bold;
+	font-size: 0.8rem;
+}
+
+nav ul li ul{
+	text-align: center;
+}
+nav ul li ul li:last-child{
+	border-bottom:none;
+}
+main{
+    height: 90vh;
+    margin: 5px 5px;  
+    /*border: 2px solid red;
+    text-align: center;*/
+}
+
+.main-list{
+	/*border: 2px solid red;*/
+	margin-left: 15px;
+}
+
+.main-div{	
+	text-align: center;
+}
+.main-h1{
+	/* border: 2px solid red; */
+}
+.main-hr{
+	width: 80%;
+	margin: 0 auto;
+}
+
+.main-image{
+	width: 90%;
+	text-align: center;	
+}
+
+.form-section{
+	font-size: 0.7em;
+}
+
+label{
+	display: block;
+}
+
+input[type=text]{
+	display: block;
+	margin-left: 10px;
+	margin: 5px 10px;
+	height: 25px;
+}
+input[type=number]{
+	display: block;
+	margin-left: 10px;
+	margin: 5px 10px;
+	height: 25px;
+}
+
+select{
+		display: block;
+	margin-left: 10px;
+	margin: 5px 10px;
+}
+
+input [type=submit]{
+	width: 400px;
+	height: 100px;
+	font-weight: bold;
+	background-color: cyan;
+}
+
+.outer-fieldset{
+	padding:5px 0px 5px 10px;
+}
+.inner-fieldset{
+	padding:5px 10px 5px 10px;
+	width: 80%;
+}
+
+@media only screen and (min-width: 576px) {
+	.form-section{
+			font-size: 0.9em;
+		}
+	.outer-fieldset{
+	padding:5px 0px 5px 10px;
+		width: 85%;
+	}
+	.inner-fieldset{
+		padding:5px 0px 5px 10px;
+		width: 75%;
+	}
+}
+
+
+/* Ipad and bigger mobile phone  */
+@media only screen and (min-width: 768px) {
+	.form-section{
+			font-size: 1.0em;
+		}
+		
+		.outer-fieldset{
+	padding:5px 0px 5px 10px;
+		width: 75%;
+	}
+	.inner-fieldset{
+		padding:5px 0px 5px 10px;
+		width: 65%;
+	}
+
+	 nav ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    nav ul li{
+    margin: 2px 0;
+    padding: 10px;
+    
+}
+    nav ul li a{
+		font-size: 0.8rem;
+	}
+	
+	.active, nav ul li:hover{
+    	background-color: #73a7f5;
+    	border: 1px solid #ffffff;
+    	border-radius: 3px;
+    	
+	}
+	
+	.sub-menu1{
+    	display: none;
+	}
+	
+    nav ul li:hover .sub-menu1{
+	    display: block;
+	    position: absolute;
+	    background-color: #10669f;
+	    margin-top: 10px;
+	    margin-left: -10px;
+	}
+	nav ul li:hover .sub-menu1 ul{
+	    display: block;
+	    margin: 5px;
+	}
+	nav ul li:hover .sub-menu1 ul li{
+	    width: 150px;
+	    padding: 5px;
+	    border-top: none;
+	    border-left: none;
+	    border-right: none;
+	    border-bottom: 1px dotted #fff;
+	    background-color: transparent;
+	    border-radius: 0;
+	    text-align: left;
+	}
+	nav ul li:hover .sub-menu1 ul li:last-child{
+	    border-bottom: none;
+	}
+	nav ul li:hover .sub-menu1 ul li a:hover{
+	    color: #2bab0d;
+	   
+	}
+}
+
+
+/* media controller for Laptop and Desktop screen */
+@media only screen and (min-width: 992px) {
+	nav ul li{
+    	display: inline; 
+	}
+	nav a{
+		padding: 0 5px;
+    	margin-bottom: 5px;
+	}
+	nav a{
+	    text-decoration: none;
+	    font-size: 1.2 rem;
+	 
+	    
+	     margin: 0;
+	    display: inline-block;
+	    padding-top: 0.2em;
+	    padding-bottom: 0.2em;
+	    padding-left: 1em;
+	    padding-right: 1em;
+	
+	    width: auto;
+	    /*border-bottom: 1px solid #fef6c2;*/
+	}
+	
+	label{
+		display: block;
+	}
+	
+	.outer-fieldset{
+	padding:5px 0px 5px 10px;
+		width: 70%;
+	}
+	.inner-fieldset{
+		padding:5px 0px 5px 10px;
+		width: 60%;
+	}
+	.form-section{
+			font-size: 1.2em;
+		}
+	
+}
+/* media controller for Laptop and Desktop screen */
+@media only screen and (min-width: 1200px) {
+	
+	
+	.outer-fieldset{
+	padding:5px 0px 5px 10px;
+		width: 70%;
+	}
+	.inner-fieldset{
+		padding:5px 0px 5px 10px;
+		width: 60%;
+	}
+	.form-section{
+			font-size: 1.2em;
+		}
+	.form-section{
+			font-size: 1.2em;
+		}
+	
+}
