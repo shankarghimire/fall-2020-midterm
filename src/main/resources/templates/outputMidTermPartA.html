@@ -33,7 +33,7 @@
         -->
         <main>
 			<div>
-				<a href="/">Back</a> 
+				<a href="/" class="btn-href">Go to Home</a> 
 				<h1>Output</h1>
 				<hr>
 			</div>
@@ -41,13 +41,13 @@
 			<p> Matrix Size:  <span th:text="${partASquareMatrix.rowSize}"></span></p>				
 			</div>
 			<section>
-				<form id="form-matrix" name="form-matrix" action="#" th:action="@{/searchMatrix}" th:object="${partASquareMatrix}" method="get">
+				<form id="form-matrix" name="form-matrix" action="#" th:action="@{/searchMatrix}" th:object="${partASquareMatrix}" method="post">
 					<fieldset>
-						<legend>Square Matrix:</legend>
+						<!-- <legend>Square Matrix:</legend> -->
 							<!--  <label for="rowSize">Row size:</label>-->
 							<input type="hidden" id="rowSize" name="rowSize" th:field="*{rowSize}"/>
-							<label for="matrixData">Matrix Data:</label>
-							<input type="text" id="matrixData" name="matrixData" size="200" th:field="*{listMatrix}"/>
+							<!--  <label for="matrixData">Matrix Data:</label>-->
+							<input type="hidden" id="matrixData" name="matrixData" size="200" th:field="*{listMatrix}"/>
 						<fieldset>
 							<legend>Auto-generated Square Matrix</legend>
 							
@@ -59,8 +59,8 @@
 						</fieldset>
 						<fieldset>
 							<legend>Search Box:</legend>
-							<label>Enter a word to search: </label>
-							<input type="text" id="searchText" name="searchText" th:field="*{searchValue}" >
+							<label>Enter a word to search(Search is NOT case sensitive): </label>
+							<input type="text" id="searchText" name="searchText" placeholder="Type the word to search" th:field="*{searchValue}" >
 						</fieldset>
 						<fieldset>
 							<input type="submit" value="Search Word" id="btn-Search">
@@ -74,34 +74,6 @@
 				</div>
 			</section>
 	
-			<!-- 
-			<div>
-			
-			<p> 
-				Rows(m) : <span th:text="${objCSRFormat.rowSize}"></span>&nbsp;&nbsp; &nbsp;&nbsp;Cols (n): <span th:text= "${objCSRFormat.colSize}" ></span>
-			</p>
-			Your Choice is : <span th:text="${objCSRFormat.userOption}"></span>			
-			</p>
-			<h4>Using Array:</h4>
-			<p th:if="${objCSRFormat.userOption}=='V'">V: <span th:each="v:${objCSRFormat.arrV}"  th:text="${v}+', '"></span></p>
-			<p th:if="${objCSRFormat.userOption}=='J'">J: <span th:each="j:${objCSRFormat.arrJ}"  th:text="${j}+', '"></span></p>
-			<p th:if="${objCSRFormat.userOption}=='I'">I: <span th:each="i:${objCSRFormat.arrI}"  th:text="${i}+', '"></span></p>		
-			<h4>Using ArrayList:</h4>
-			<p th:if="${objCSRFormat.userOption}=='V'">V: <span th:text="${objCSRFormat.listV}"></span></p>
-			<p th:if="${objCSRFormat.userOption}=='J'">J: <span th:text="${objCSRFormat.listJ}"></span></p>
-			<p th:if="${objCSRFormat.userOption}=='I'">I: <span th:text="${objCSRFormat.listI}"></span></p>
-			 -->
-			<!-- 
-			<p>
-				V: <span th:text="${objCSRFormat.listV}"></span>
-			</p>
-			<p>
-				J: <span th:text="${objCSRFormat.listJ}"></span>
-			</p>
-			<p>
-				I: <span th:text="${objCSRFormat.listI}"></span>
-			</p>
-			 -->
 			</div>
 			<br><br>
 			<hr>

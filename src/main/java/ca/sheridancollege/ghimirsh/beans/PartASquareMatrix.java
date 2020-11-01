@@ -8,8 +8,7 @@ public class PartASquareMatrix {
 	private char[][] matrix;
 	private List<Character> listMatrix ;
 	private boolean searchResult;
-	private String searchValue = "Test";
-	
+	private String searchValue;
 	
 	public PartASquareMatrix() {
 		

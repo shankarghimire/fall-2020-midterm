@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import ca.sheridancollege.ghimirsh.beans.PartASquareMatrix;
 import ca.sheridancollege.ghimirsh.service.PartASquareMatrixService;
@@ -11,6 +12,7 @@ import ca.sheridancollege.ghimirsh.service.PartASquareMatrixService;
 @Controller
 public class MidTermController {
 	PartASquareMatrix temp;
+	
 	@GetMapping("/midTermPartA")
 	public String goMidTermPartA(Model model) {
 		model.addAttribute("partASquareMatrix", new PartASquareMatrix());
@@ -21,7 +23,7 @@ public class MidTermController {
 		return "midTermPartB";
 	}
 	
-	@GetMapping("/outputMidTermPartA")
+	@PostMapping("/createMatrix")
 	public String goOutputMidTermPartA(Model model, @ModelAttribute PartASquareMatrix partASquareMatrix ) {
 		PartASquareMatrixService partASquareMatrixService = new PartASquareMatrixService();
 		temp = partASquareMatrixService.preparePartASquareMatrixService(partASquareMatrix);
@@ -32,7 +34,7 @@ public class MidTermController {
 	}
 	
 	
-	@GetMapping("/searchMatrix")
+	@PostMapping("/searchMatrix")
 	public String fillMatrix(Model model, @ModelAttribute PartASquareMatrix partASquareMatrix) {
 		
 		PartASquareMatrixService partASquareMatrixService = new PartASquareMatrixService();
