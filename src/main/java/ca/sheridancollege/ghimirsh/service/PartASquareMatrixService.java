@@ -86,6 +86,8 @@ public class PartASquareMatrixService {
 //		String str1 = sc.next();
 //		
 //	}
+	
+	/*
 	private boolean beginSearch(char[][]data, String searchWord) {
 		boolean finalResult = false;
 		char currentLetter;
@@ -100,17 +102,69 @@ public class PartASquareMatrixService {
 					if(finalResult) {
 						break outerloop;
 					}
-					else {
-						continue;
-					}
+//					else {
+//						continue;
+//					}
 				}
+				if(currentLetter == firstLetter) {
+					finalResult = searchLeft(data, i, j, searchWord);
+					if(finalResult) {
+						break outerloop;
+					}
+//					else {
+//						continue;
+//					}
+				}
+//				else {
+//					continue;
+//				}
 			}
 		}
 		
 		return finalResult;
 	}
 	
-	//method to search term in right direction
+	*/
+	private boolean beginSearch(char[][]data, String searchWord) {
+		boolean finalResult = false;
+		String tempData = "";
+		//calls horizontalSearch method
+		if(!finalResult) {
+			for(int i = 0; i < data.length; i++) {
+				tempData = String.valueOf(data[i]);
+				//finalResult = searchRight2(tempData, searchWord);
+				finalResult = searchHorizontal(tempData,searchWord);
+				if(finalResult) {
+					break;
+				}
+			}
+		}
+		//calls vertialSearch method
+		if (!finalResult) {
+			//int index = 0;
+			char[] tempColumn = new char[data.length];
+			outerloop: for (int i = 0; i < data.length; i++) {
+				int index = 0;
+				for (int j = 0; j < data.length; j++) {
+					tempColumn[index] = data[j][i];
+					index++;
+				}
+				tempData = String.valueOf(tempColumn);
+				// finalResult = searchRight2(tempData, searchWord);
+				finalResult = searchHorizontal(tempData, searchWord);
+				if (finalResult) {
+					break outerloop;
+				}
+			}
+		}
+			
+		return finalResult;
+	}
+	
+	
+	
+	//method to search in right direction
+	/*
 	private boolean searchRight(char[][]data, int startX, int startY, String searchWord) {
 		boolean searchResult = false;
 		int rowSize= 0; 
@@ -138,7 +192,6 @@ public class PartASquareMatrixService {
 				index++;
 			}	
 		}
-		
 		String tempString = String.valueOf(temp);
 		tempString = tempString.toUpperCase();
 		if(tempString.equalsIgnoreCase(searchWord)) {
@@ -147,23 +200,102 @@ public class PartASquareMatrixService {
 		else {
 			searchResult = false;
 		}
-		
 		return searchResult;
+	}*/
+	
+	//method to search in left direction
+	/*
+		private boolean searchLeft(char[][]data, int startRow, int startCol, String searchWord) {
+			boolean searchResult = false;
+			int rowSize= 0; 
+			int colSize =  0;
+			char ch1,ch2;
+			searchWord = searchWord.toUpperCase();
+			int searchWordLength = searchWord.length();
+			char[] temp = new char[searchWordLength];
+			int index = 0;
+			int totalTimesToRepeat = startCol - searchWord.length();
+			rowSize = colSize = data.length;
+			for(int colPosition = startCol; colPosition >= 0 ; colPosition--) {
+				if(colPosition < 0 || colPosition <= totalTimesToRepeat) {
+					break;
+				}
+				else {
+					ch1 = data[startRow][colPosition];
+					ch2 = searchWord.charAt(index);
+					temp[index] = ch1;
+					//if(temp[index] != searchWord.charAt(index)) {
+					if(ch1 != ch2 ) {
+						//searchResult = false;
+						break;
+					}
+					index++;
+				}	
+			}
+			String tempString = String.valueOf(temp);
+			tempString = tempString.toUpperCase();
+			if(tempString.equalsIgnoreCase(searchWord)) {
+				searchResult = true;
+			}
+			else {
+				searchResult = false;
+			}
+			return searchResult;
+		}
+		*/
+		//Method Next:
+		//method to search in left direction
+		/*
+		private boolean searchLeft2(String data, String searchWord) {
+			boolean searchResult = false;
+			StringBuilder data1 = new StringBuilder();
+			data1.append(data);
+			data1 = data1.reverse();
+			data =String.valueOf(data1);
+			searchResult = data.contains(searchWord);
+			return searchResult;
+		}
+		*/
+		//method 2:
+		//Search Right side Direction
+		/*
+		private boolean searchRight2(String data, String searchWord) {
+			boolean searchResult = false;	
+			searchWord = searchWord.toUpperCase();
+			searchResult = data.contains(searchWord);
+			return searchResult;
+		}
+		*/
+		//Search in Horizontal direction
+		private boolean searchHorizontal(String data, String searchWord) {
+			boolean searchResult = false;
+			searchWord = searchWord.toUpperCase();
+			searchResult = data.contains(searchWord);
+			if(!searchResult) {
+				StringBuilder data1 = new StringBuilder();
+				data1.append(data);
+				data1 = data1.reverse();
+				data =String.valueOf(data1);
+				searchResult = data.contains(searchWord);
+			}
+			return searchResult;
+		}
 		
-//		String strTemp = String.valueOf(temp);
-//		if(strTemp.equalsIgnoreCase(searchWord)){
-//			return true;
-//		}
-//		else {
-//			return false;
-//		}
+		///search in vertical direction
+		private boolean searchVertical(String data, String searchWord) {
+			boolean searchResult = false;
+			searchWord = searchWord.toUpperCase();
+			searchResult = data.contains(searchWord);
+			if(!searchResult) {
+				StringBuilder data1 = new StringBuilder();
+				data1.append(data);
+				data1 = data1.reverse();
+				data =String.valueOf(data1);
+				searchResult = data.contains(searchWord);
+			}
+			return searchResult;
+		}
 		
-//		while( yPosition < colSize || yPosition < charLength) {
-//			
-//			
-//		}
 		
-		//return searchResult;
-	}
 }
 
