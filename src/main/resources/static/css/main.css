@@ -141,9 +141,10 @@ input [type=submit]{
 }
 
 #div-labels{
-	//width: 400px;
-	//height: 300px;
+	/*width: 400px;
+	height: 300px;
 	overflow-x: auto;
+	overflow-y: auto;*/
 	text-align: center;
 	padding: 5px;
 	background-color: cyan;
@@ -266,9 +267,10 @@ input [type=submit]{
 	}
 	
 	#div-labels{
-		//width: 400px;
-		//height: 300px;
+		/*width: 400px;
+		height: 300px;
 		overflow-x: auto;
+		overflow-y: auto;*/
 		text-align: center;
 		padding: 5px;
 		background-color: cyan;
@@ -308,9 +310,10 @@ input [type=submit]{
 		}
 	
 	#div-labels{
-		//width: 400px;
-		//height: 300px;
+		/*width: 400px;
+		height: 300px;
 		overflow-x: auto;
+		overflow-y: auto;*/
 		text-align: center;
 		padding: 5px;
 		background-color: cyan;
@@ -355,9 +358,10 @@ input [type=submit]{
 		}
 		
 		#div-labels{
-			//width: 400px;
-			//height: 300px;
+			/*width: 400px;
+			height: 300px;
 			overflow-x: auto;
+			overflow-y: auto;*/
 			text-align: center;
 			padding: 5px;
 			background-color: cyan;

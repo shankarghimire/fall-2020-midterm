@@ -10,7 +10,7 @@ import ca.sheridancollege.ghimirsh.service.PartASquareMatrixService;
 
 @Controller
 public class MidTermController {
-	
+	PartASquareMatrix temp;
 	@GetMapping("/midTermPartA")
 	public String goMidTermPartA(Model model) {
 		model.addAttribute("partASquareMatrix", new PartASquareMatrix());
@@ -24,17 +24,25 @@ public class MidTermController {
 	@GetMapping("/outputMidTermPartA")
 	public String goOutputMidTermPartA(Model model, @ModelAttribute PartASquareMatrix partASquareMatrix ) {
 		PartASquareMatrixService partASquareMatrixService = new PartASquareMatrixService();
-		PartASquareMatrix temp = partASquareMatrixService.testPartASquareMatrixService(partASquareMatrix);
+		temp = partASquareMatrixService.preparePartASquareMatrixService(partASquareMatrix);
 		
 		model.addAttribute("partASquareMatrix", temp);
 		
 		return "outputMidTermPartA";
 	}
 	
-	@GetMapping("/fillMatrix")
-	public String fillMatrix(Model model) {
-		System.out.println("Testing from fillMatrix() mapping method: ");
-		model.addAttribute("partASquareMatrix", new PartASquareMatrix());
+	
+	@GetMapping("/searchMatrix")
+	public String fillMatrix(Model model, @ModelAttribute PartASquareMatrix partASquareMatrix) {
+		
+		PartASquareMatrixService partASquareMatrixService = new PartASquareMatrixService();
+		String searchValue = partASquareMatrix.getSearchValue();
+		temp.setSearchValue(searchValue);
+		partASquareMatrix = temp;
+		temp = partASquareMatrixService.searchMatrix(partASquareMatrix);
+		
+		model.addAttribute("partASquareMatrix", temp);
+		
 		return "outputMidTermPartA";
 	}
 

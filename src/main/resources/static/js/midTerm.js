@@ -100,7 +100,7 @@ window.addEventListener('load',(e)=>{
 	let bb = 0;
 	bb= rowSize.value;
 	divLabels.innerHTML="";
-	divLabels.style.width= (bb * 25) + 'px';
+	divLabels.style.width= (bb * 30) + 'px';
 	divLabels.style.height= (bb * 25) + 'px';
 	
 	let labelElement = document.createElement("label");

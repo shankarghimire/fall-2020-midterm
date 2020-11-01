@@ -41,7 +41,7 @@
 			<p> Matrix Size:  <span th:text="${partASquareMatrix.rowSize}"></span></p>				
 			</div>
 			<section>
-				<form id="form-matrix" name="form-matrix" action="#" th:action="@{/fillMatrix}" th:object="${partASquareMatrix}" method="get">
+				<form id="form-matrix" name="form-matrix" action="#" th:action="@{/searchMatrix}" th:object="${partASquareMatrix}" method="get">
 					<fieldset>
 						<legend>Square Matrix:</legend>
 							<!--  <label for="rowSize">Row size:</label>-->
@@ -60,13 +60,18 @@
 						<fieldset>
 							<legend>Search Box:</legend>
 							<label>Enter a word to search: </label>
-							<input type="text" id="searchText" name="searchText" >
+							<input type="text" id="searchText" name="searchText" th:field="*{searchValue}" >
 						</fieldset>
 						<fieldset>
-							<input type="button" value="Search Word" id="btn-Search">
+							<input type="submit" value="Search Word" id="btn-Search">
 						</fieldset>
 					</fieldset>
 				</form>
+			</section>
+			<section>
+				<div>
+					<h3>Search Result: <span th:if="${partASquareMatrix.searchResult}==true">FOUND!</span><span th:if="${partASquareMatrix.searchResult}!=true">Not Found!</span> </h3>
+				</div>
 			</section>
 	
 			<!-- 

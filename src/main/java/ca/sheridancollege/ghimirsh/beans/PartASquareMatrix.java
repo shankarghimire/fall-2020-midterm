@@ -7,6 +7,8 @@ public class PartASquareMatrix {
 	private int rowSize = 5;
 	private char[][] matrix;
 	private List<Character> listMatrix ;
+	private boolean searchResult;
+	private String searchValue = "Test";
 	
 	
 	public PartASquareMatrix() {
@@ -37,6 +39,22 @@ public class PartASquareMatrix {
 
 	public void setListMatrix(List<Character> listMatrix) {
 		this.listMatrix = listMatrix;
+	}
+
+	public boolean isSearchResult() {
+		return searchResult;
+	}
+
+	public void setSearchResult(boolean searchResult) {
+		this.searchResult = searchResult;
+	}
+
+	public String getSearchValue() {
+		return searchValue;
+	}
+
+	public void setSearchValue(String searchValue) {
+		this.searchValue = searchValue;
 	}
 
 	public void printMatrix() {
