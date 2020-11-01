@@ -44,8 +44,10 @@
 				<form id="form-matrix" name="form-matrix" action="#" th:action="@{/fillMatrix}" th:object="${partASquareMatrix}" method="get">
 					<fieldset>
 						<legend>Square Matrix:</legend>
-							<label for="rowSize">Row size:</label>
-							<input type="text" id="rowSize" name="rowSize" th:field="*{rowSize}"/>
+							<!--  <label for="rowSize">Row size:</label>-->
+							<input type="hidden" id="rowSize" name="rowSize" th:field="*{rowSize}"/>
+							<label for="matrixData">Matrix Data:</label>
+							<input type="text" id="matrixData" name="matrixData" size="200" th:field="*{listMatrix}"/>
 						<fieldset>
 							<legend>Auto-generated Square Matrix</legend>
 							

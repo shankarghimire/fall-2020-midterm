@@ -1,10 +1,12 @@
 package ca.sheridancollege.ghimirsh.beans;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class PartASquareMatrix {
 	private int rowSize = 5;
 	private char[][] matrix;
+	private List<Character> listMatrix ;
 	
 	
 	public PartASquareMatrix() {
@@ -28,6 +30,15 @@ public class PartASquareMatrix {
 	public void setMatrix(char[][] matrix) {
 		this.matrix = matrix;
 	}
+	
+	public List<Character> getListMatrix() {
+		return listMatrix;
+	}
+
+	public void setListMatrix(List<Character> listMatrix) {
+		this.listMatrix = listMatrix;
+	}
+
 	public void printMatrix() {
 		System.out.println("Given Square Matrix size: " + this.getRowSize());
 		System.out.println("Given SquareMatrix is : ");
@@ -40,11 +51,15 @@ public class PartASquareMatrix {
 		}
 	}
 	
+	
+	
 	@Override
 	public String toString() {
-		return "PartASquareMatrix [rowSize=" + rowSize + ", matrix=" + Arrays.toString(matrix) + "]";
+		return "PartASquareMatrix [rowSize=" + rowSize + ", matrix=" + Arrays.toString(matrix) + ", listMatrix="
+				+ listMatrix + "]";
 	}
 	
+
 	
 	
 } 
