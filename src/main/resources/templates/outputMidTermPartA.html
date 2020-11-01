@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mid Term-Fall, 2020 : Shankar Ghimire</title>
+    
     <link rel="stylesheet" href="./css/main.css">
+    <script defer src="./js/midTerm.js"></script>
 </head>
 <body>
     <div class="container">
@@ -36,6 +38,38 @@
 				<hr>
 			</div>
 			<div>
+			<p> Matrix Size:  <span th:text="${partASquareMatrix.rowSize}"></span></p>				
+			</div>
+			<section>
+				<form id="form-matrix" name="form-matrix" action="#" th:action="@{/fillMatrix}" th:object="${partASquareMatrix}" method="get">
+					<fieldset>
+						<legend>Square Matrix:</legend>
+							<label for="rowSize">Row size:</label>
+							<input type="text" id="rowSize" name="rowSize" th:field="*{rowSize}"/>
+						<fieldset>
+							<legend>Auto-generated Square Matrix</legend>
+							
+							<div id="div-labels">
+								
+								
+							</div>
+							
+						</fieldset>
+						<fieldset>
+							<legend>Search Box:</legend>
+							<label>Enter a word to search: </label>
+							<input type="text" id="searchText" name="searchText" >
+						</fieldset>
+						<fieldset>
+							<input type="button" value="Search Word" id="btn-Search">
+						</fieldset>
+					</fieldset>
+				</form>
+			</section>
+	
+			<!-- 
+			<div>
+			
 			<p> 
 				Rows(m) : <span th:text="${objCSRFormat.rowSize}"></span>&nbsp;&nbsp; &nbsp;&nbsp;Cols (n): <span th:text= "${objCSRFormat.colSize}" ></span>
 			</p>
@@ -49,6 +83,7 @@
 			<p th:if="${objCSRFormat.userOption}=='V'">V: <span th:text="${objCSRFormat.listV}"></span></p>
 			<p th:if="${objCSRFormat.userOption}=='J'">J: <span th:text="${objCSRFormat.listJ}"></span></p>
 			<p th:if="${objCSRFormat.userOption}=='I'">I: <span th:text="${objCSRFormat.listI}"></span></p>
+			 -->
 			<!-- 
 			<p>
 				V: <span th:text="${objCSRFormat.listV}"></span>
@@ -69,5 +104,9 @@
             Copy right &copy;Shankar Ghimire
         </footer>
     </div>
+    
+    <!--  
+    	<script src="./static/js/midTerm.js"></script>
+    -->
 </body>
 </html>

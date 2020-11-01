@@ -38,8 +38,21 @@
 				<hr class="main-hr">
 			</div>
 			<section class="form-section">
-				<h2>Sparse Matrix Generation</h2>
-				<div id="error"></div>
+				
+					<div class="form-container">
+						<form method="get"  action="/outputMidTermPartA" th:action="@{/outputMidTermPartA}" th:object="${partASquareMatrix}">
+							<div class="div-form">							
+								<fieldset class="inner-fieldset">
+									<legend>Enter the size of the square matrix: </legend>
+									<label for="matrixSize">Size: </label> <input type="number" name="rowSize" id="rowSize" th:field="*{rowSize}" min="5">									
+								</fieldset>
+								<fieldset class="inner-fieldset" >
+									<input type="submit" value="Submit" id="submit-part-A">
+								</fieldset>
+							</div>
+						</form>
+					</div>
+					
 					<!-- 
 				<form id="form-matrix" action="#" th:action="@{/add}"   method="get" >
 				<fieldset class="outer-fieldset">
