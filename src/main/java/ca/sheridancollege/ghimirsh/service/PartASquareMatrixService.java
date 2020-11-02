@@ -158,6 +158,35 @@ public class PartASquareMatrixService {
 			}
 		}
 			
+		//calls method to search in Main diagonal
+		if (!finalResult) {
+			int rowIndex = 0;
+			int colIndex = 0;
+			char[] dataMainDiagonal = new char[data.length];
+			for(int index = 0; index < data.length; index++) {
+				dataMainDiagonal[index] = data[rowIndex][colIndex];
+				rowIndex++;
+				colIndex++;
+			}
+			tempData = String.valueOf(dataMainDiagonal);
+			finalResult = searchDiagonal(tempData, searchWord);			
+		}
+		
+		//calls method to search in Secondary diagonal
+		if (!finalResult) {
+			
+			int rowIndex = 0;
+			int colIndex = data.length - 1;
+			char[] dataSecondaryDiagonal = new char[data.length];
+			for (int index = 0; index < data.length; index++) {
+				dataSecondaryDiagonal[index] = data[rowIndex][colIndex];
+				rowIndex++;
+				colIndex--;
+			}
+			tempData = String.valueOf(dataSecondaryDiagonal);
+			finalResult = searchDiagonal(tempData, searchWord);
+		}
+		
 		return finalResult;
 	}
 	
@@ -296,6 +325,34 @@ public class PartASquareMatrixService {
 			return searchResult;
 		}
 		
-		
+		///search in main diagonal direction
+		private boolean searchDiagonal(String data, String searchWord) {
+			boolean searchResult = false;
+			searchWord = searchWord.toUpperCase();
+			searchResult = data.contains(searchWord);
+			//Search the reverse value
+			if (!searchResult) {
+				StringBuilder data1 = new StringBuilder();
+				data1.append(data);
+				data1 = data1.reverse();
+				data = String.valueOf(data1);
+				searchResult = data.contains(searchWord);
+			}
+			return searchResult;
+		}
+		///search in secondary diagonal direction
+		private boolean searchSecondaryDiagonal(String data, String searchWord) {
+			boolean searchResult = false;
+			searchWord = searchWord.toUpperCase();
+			searchResult = data.contains(searchWord);
+			if (!searchResult) {
+				StringBuilder data1 = new StringBuilder();
+				data1.append(data);
+				data1 = data1.reverse();
+				data = String.valueOf(data1);
+				searchResult = data.contains(searchWord);
+			}
+			return searchResult;
+		}
 }
 
