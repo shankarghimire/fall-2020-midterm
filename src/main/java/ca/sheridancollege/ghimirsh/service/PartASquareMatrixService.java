@@ -1,11 +1,12 @@
 package ca.sheridancollege.ghimirsh.service;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
 import org.springframework.stereotype.Service;
-
 import ca.sheridancollege.ghimirsh.beans.PartASquareMatrix;
 
 @Service
@@ -18,7 +19,12 @@ public class PartASquareMatrixService {
 	public PartASquareMatrix preparePartASquareMatrixService(PartASquareMatrix obj) {
 		temp = obj;
 		System.out.println("Testing from the PartASquareMatrixService class...");
+		//method call to fill up the matrix elements with random chars
 		fillMatrix(temp);
+		
+		//method call to store the matrix into a data file
+		writeMatrixToFile(obj);
+		
 		return temp;
 	}
 
@@ -267,5 +273,51 @@ searchWord = searchWord.toUpperCase();
 			
 		}
 		return searchResult;
+	}
+	
+	//Method to store matrix in a data file
+	private void writeMatrixToFile(PartASquareMatrix obj) {
+		File file;
+		FileWriter fw;
+		BufferedWriter bw;
+		int rowSize = 0;
+		int colSize = 0;
+		double element = 0;
+		String line;
+		try {
+			file = new File("output2.txt");
+			if(!file.exists()) {
+				file.createNewFile();
+			}
+			
+			fw = new FileWriter(file);
+			bw = new BufferedWriter(fw);
+			
+			rowSize = obj.getRowSize();
+			colSize = rowSize;
+			
+			line = String.valueOf(rowSize)+ " " + String.valueOf(colSize);
+			bw.write(line);
+			bw.newLine();
+			char[][] tempMatrix = obj.getMatrix();
+			for(int i = 0; i < tempMatrix.length; i++ ) {
+				line = "";
+				for(int j = 0; j < tempMatrix[i].length; j++) {
+					element = tempMatrix[i][j];
+					line += String.valueOf(element) +" ";					
+				}
+				bw.write(line);
+				bw.newLine();
+			}
+			
+			bw.close();
+			fw.close();
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+		finally {
+			System.out.println("");			
+		}
 	}
 }
