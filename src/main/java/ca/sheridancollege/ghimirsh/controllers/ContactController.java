@@ -20,8 +20,11 @@ public class ContactController {
 	@PostMapping("/processContact")
 	public String processContact(Model model, @ModelAttribute User user) {
 		System.out.println("Testing the ProcessContact Mapping...");
+		System.out.println("Name: " + user.getUserName());
+		System.out.println("Email : " + user.getUserEmail());
 		model.addAttribute("user", user);
-		return "contact";
+		
+		return "contactOutput";
 	}
 	
 	

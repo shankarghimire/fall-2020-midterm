@@ -26,7 +26,8 @@ public class AssignmentController {
 
 	@GetMapping("/add")
 	public String doAddCSRFormat(Model model, @ModelAttribute CSRFormat objCSRFormat) {
-		System.out.println(objCSRFormat.toString());
+		//for testing purpose on console
+		//System.out.println(objCSRFormat.toString());
 		CSRFService objCSRFService = new CSRFService();
 		CSRFormat temp ;
 		//File file;

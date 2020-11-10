@@ -102,6 +102,7 @@ public class PartASquareMatrix {
 	}
 
 	public void printMatrix() {
+		//For Testing on console
 		System.out.println("Given Square Matrix size: " + this.getRowSize());
 		System.out.println("Given SquareMatrix is : ");
 		System.out.println();

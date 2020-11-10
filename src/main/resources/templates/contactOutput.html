@@ -38,24 +38,13 @@
             </ul>
         </nav>
         <main>
+
 			<div>
-				<h1>Contact Us </h1>
-				<h2>Under Construction</h2>
+				<hr>
 			</div>
-			<div>
-				<form method="post" action="#" th:action="@{/processContact}" th:object="${user}" >
-					<div class="div-form-element">
-						<label>Name : </label>
-						<input name="user-name" id='user-name' type="text" placeholder="Full Name" th:field="*{userName}" />
-					</div>
-					<div class="div-form-element">
-						<label>Email : </label>
-						<input name="user-email" id='user-email' type="email" placeholder="Email" th:field="*{userEmail}" />
-					</div>
-					<div>
-						<input type='submit' id='btn-submit' value="Submit"/>
-					</div>					
-				</form>
+			<div th:object="${user}">
+				<h1>Welcome ! <span th:text="*{userName}"></span> </h1>
+				<h2>We will contact you soon at : <span th:text="*{userEmail}"></span> </h2>
 			</div>
         </main>
         <footer>

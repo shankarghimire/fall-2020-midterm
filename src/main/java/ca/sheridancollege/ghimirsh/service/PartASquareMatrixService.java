@@ -18,7 +18,7 @@ public class PartASquareMatrixService {
 	}
 	public PartASquareMatrix preparePartASquareMatrixService(PartASquareMatrix obj) {
 		temp = obj;
-		System.out.println("Testing from the PartASquareMatrixService class...");
+		//System.out.println("Testing from the PartASquareMatrixService class...");
 		//method call to fill up the matrix elements with random chars
 		fillMatrix(temp);
 		
@@ -49,9 +49,9 @@ public class PartASquareMatrixService {
 		}
 
 		// testing purpose
-		System.out.println("You search for : " + str1);
-		String result = (searchResult) ? "Found" : "Not Found";
-		System.out.println(result);
+		//System.out.println("You search for : " + str1);
+		//String result = (searchResult) ? "Found" : "Not Found";
+		//System.out.println(result);
 		return temp;
 	}
 
@@ -82,7 +82,7 @@ public class PartASquareMatrixService {
 		obj.setMatrix(tempMatrix);
 
 		// print arrayList
-		System.out.println(obj.getListMatrix());
+		//System.out.println(obj.getListMatrix());
 
 		// print matrix elements on console for testing
 		obj.printMatrix();
@@ -175,9 +175,9 @@ searchWord = searchWord.toUpperCase();
 			temp.setEndCol(endColIndex);
 			
 			//testing on console
-			System.out.println("Search Word : " + searchWord);
-			System.out.println("Start Postion : " + temp.getStartRow() + ", " + temp.getStartCol());
-			System.out.println("Start Postion : " + temp.getEndRow() + ", " + temp.getEndCol());
+			//System.out.println("Search Word : " + searchWord);
+			//System.out.println("Start Postion : " + temp.getStartRow() + ", " + temp.getStartCol());
+			//System.out.println("Start Postion : " + temp.getEndRow() + ", " + temp.getEndCol());
 			
 		}
 		return searchResult;
@@ -204,9 +204,9 @@ searchWord = searchWord.toUpperCase();
 			temp.setEndRow(endRowPos);
 			
 			//testing on console
-			System.out.println("Search Word : " + searchWord);
-			System.out.println("Start Postion : " + temp.getStartRow() + ", " + temp.getStartCol());
-			System.out.println("Start Postion : " + temp.getEndRow() + ", " + temp.getEndCol());
+			//System.out.println("Search Word : " + searchWord);
+			//System.out.println("Start Postion : " + temp.getStartRow() + ", " + temp.getStartCol());
+			//System.out.println("Start Postion : " + temp.getEndRow() + ", " + temp.getEndCol());
 			
 		}
 		return searchResult;
@@ -230,9 +230,9 @@ searchWord = searchWord.toUpperCase();
 			temp.setEndRow(endIndex);
 			temp.setEndCol(endIndex);
 			//testing on console
-			System.out.println("Search Word : " + searchWord);
-			System.out.println("Start Postion : " + temp.getStartRow() + ", " + temp.getStartCol());
-			System.out.println("Start Postion : " + temp.getEndRow() + ", " + temp.getEndCol());			
+			//System.out.println("Search Word : " + searchWord);
+			//System.out.println("Start Postion : " + temp.getStartRow() + ", " + temp.getStartCol());
+			//System.out.println("Start Postion : " + temp.getEndRow() + ", " + temp.getEndCol());			
 		}
 		return searchResult;
 	}
@@ -267,9 +267,9 @@ searchWord = searchWord.toUpperCase();
 			temp.setEndCol(endColIndex);
 			
 			//testing on console
-			System.out.println("Search Word : " + searchWord);
-			System.out.println("Start Postion : " + temp.getStartRow() + ", " + temp.getStartCol());
-			System.out.println("Start Postion : " + temp.getEndRow() + ", " + temp.getEndCol());
+			//System.out.println("Search Word : " + searchWord);
+			//System.out.println("Start Postion : " + temp.getStartRow() + ", " + temp.getStartCol());
+			//System.out.println("Start Postion : " + temp.getEndRow() + ", " + temp.getEndCol());
 			
 		}
 		return searchResult;
@@ -282,7 +282,7 @@ searchWord = searchWord.toUpperCase();
 		BufferedWriter bw;
 		int rowSize = 0;
 		int colSize = 0;
-		double element = 0;
+		char element = '0';
 		String line;
 		try {
 			file = new File("output2.txt");
