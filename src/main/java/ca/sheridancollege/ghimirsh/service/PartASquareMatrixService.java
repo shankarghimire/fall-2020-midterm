@@ -35,6 +35,12 @@ public class PartASquareMatrixService {
 		char[][] tempMatrix = temp.getMatrix();
 		searchResult = beginSearch(tempMatrix, str1);
 		temp.setSearchResult(searchResult);
+		if(searchResult) {
+			temp.setSearchValueResult("Found");
+		}
+		else {
+			temp.setSearchValueResult("NotFound");
+		}
 
 		// testing purpose
 		System.out.println("You search for : " + str1);
@@ -84,7 +90,7 @@ public class PartASquareMatrixService {
 			for (int i = 0; i < data.length; i++) {
 				tempData = String.valueOf(data[i]);
 				// finalResult = searchRight2(tempData, searchWord);
-				finalResult = searchHorizontal(tempData, searchWord);
+				finalResult = searchHorizontal(tempData, searchWord,i);
 				if (finalResult) {
 					break;
 				}
@@ -102,7 +108,7 @@ public class PartASquareMatrixService {
 				}
 				tempData = String.valueOf(tempColumn);
 				// finalResult = searchRight2(tempData, searchWord);
-				finalResult = searchVertical(tempData, searchWord);
+				finalResult = searchVertical(tempData, searchWord,i);
 				if (finalResult) {
 					break outerloop;
 				}
@@ -141,31 +147,61 @@ public class PartASquareMatrixService {
 	}
 
 	// Search in Horizontal direction
-	private boolean searchHorizontal(String data, String searchWord) {
+	private boolean searchHorizontal(String data, String searchWord, int rowNo) {
 		boolean searchResult = false;
-		searchWord = searchWord.toUpperCase();
+searchWord = searchWord.toUpperCase();
+		
+		//Searches the word from Left to Right direction
 		searchResult = data.contains(searchWord);
+		
+		//if not found in above case, then searches the word from Right to Left direction
 		if (!searchResult) {
-			StringBuilder data1 = new StringBuilder();
-			data1.append(data);
-			data1 = data1.reverse();
-			data = String.valueOf(data1);
+			searchWord = new StringBuilder(searchWord).reverse().toString();
 			searchResult = data.contains(searchWord);
+		}
+		if(searchResult) {
+			temp.setStartRow(rowNo);
+			int startColPos = data.indexOf(searchWord);
+			temp.setStartCol(startColPos);
+			
+			temp.setEndRow(rowNo);
+			int endColIndex = startColPos + (searchWord.length() - 1);
+			temp.setEndCol(endColIndex);
+			
+			//testing on console
+			System.out.println("Search Word : " + searchWord);
+			System.out.println("Start Postion : " + temp.getStartRow() + ", " + temp.getStartCol());
+			System.out.println("Start Postion : " + temp.getEndRow() + ", " + temp.getEndCol());
+			
 		}
 		return searchResult;
 	}
 
 	/// search in vertical direction
-	private boolean searchVertical(String data, String searchWord) {
+	private boolean searchVertical(String data, String searchWord, int colNo) {
 		boolean searchResult = false;
 		searchWord = searchWord.toUpperCase();
 		searchResult = data.contains(searchWord);
 		if (!searchResult) {
-			StringBuilder data1 = new StringBuilder();
-			data1.append(data);
-			data1 = data1.reverse();
-			data = String.valueOf(data1);
+			searchWord = new StringBuilder(searchWord).reverse().toString();
 			searchResult = data.contains(searchWord);
+		}
+		
+		if(searchResult) {
+			temp.setStartCol(colNo);
+			
+			int startRowPos = data.indexOf(searchWord);
+			temp.setStartRow(startRowPos);
+			
+			temp.setEndCol(colNo);
+			int endRowPos = startRowPos + (searchWord.length() - 1);
+			temp.setEndRow(endRowPos);
+			
+			//testing on console
+			System.out.println("Search Word : " + searchWord);
+			System.out.println("Start Postion : " + temp.getStartRow() + ", " + temp.getStartCol());
+			System.out.println("Start Postion : " + temp.getEndRow() + ", " + temp.getEndCol());
+			
 		}
 		return searchResult;
 	}
@@ -177,11 +213,20 @@ public class PartASquareMatrixService {
 		searchResult = data.contains(searchWord);
 		// Search the reverse value
 		if (!searchResult) {
-			StringBuilder data1 = new StringBuilder();
-			data1.append(data);
-			data1 = data1.reverse();
-			data = String.valueOf(data1);
+			searchWord = new StringBuilder(searchWord).reverse().toString();
 			searchResult = data.contains(searchWord);
+		}
+		if(searchResult) {
+			int startIndex = data.indexOf(searchWord);
+			temp.setStartRow(startIndex);
+			temp.setStartCol(startIndex);
+			int endIndex = startIndex + (searchWord.length() - 1);
+			temp.setEndRow(endIndex);
+			temp.setEndCol(endIndex);
+			//testing on console
+			System.out.println("Search Word : " + searchWord);
+			System.out.println("Start Postion : " + temp.getStartRow() + ", " + temp.getStartCol());
+			System.out.println("Start Postion : " + temp.getEndRow() + ", " + temp.getEndCol());			
 		}
 		return searchResult;
 	}
@@ -189,14 +234,37 @@ public class PartASquareMatrixService {
 	/// search in secondary diagonal direction
 	private boolean searchSecondaryDiagonal(String data, String searchWord) {
 		boolean searchResult = false;
+		//Converts to upper case to make the case insensitive
 		searchWord = searchWord.toUpperCase();
+		
+		//Searches the text from Top-left to Right-bottom direction
 		searchResult = data.contains(searchWord);
+		
+		//if not found, then searches the text from Right-Bottom to Top-Left direction
 		if (!searchResult) {
-			StringBuilder data1 = new StringBuilder();
-			data1.append(data);
-			data1 = data1.reverse();
-			data = String.valueOf(data1);
+			searchWord = new StringBuilder(searchWord).reverse().toString();
 			searchResult = data.contains(searchWord);
+		}
+		
+		//if search matched,
+		//finds the row and column position of the searched text in the matrix
+		if(searchResult) {
+			int startRowIndex = data.indexOf(searchWord);
+			int startColIndex = (data.length()-1) - startRowIndex;
+			
+			temp.setStartRow(startRowIndex);
+			temp.setStartCol(startColIndex);
+			
+			int endRowIndex = startRowIndex + (searchWord.length() - 1);
+			int endColIndex = (data.length()-1) - endRowIndex;
+			temp.setEndRow(endRowIndex);
+			temp.setEndCol(endColIndex);
+			
+			//testing on console
+			System.out.println("Search Word : " + searchWord);
+			System.out.println("Start Postion : " + temp.getStartRow() + ", " + temp.getStartCol());
+			System.out.println("Start Postion : " + temp.getEndRow() + ", " + temp.getEndCol());
+			
 		}
 		return searchResult;
 	}

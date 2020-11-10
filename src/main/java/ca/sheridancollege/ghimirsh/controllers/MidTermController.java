@@ -47,5 +47,11 @@ public class MidTermController {
 		
 		return "outputMidTermPartA";
 	}
+	
+//	@GetMapping("/testClick")
+//	public void doTestClick() {
+//		System.out.println("Testing the testClick mapping...");
+//		
+//	}
 
 }

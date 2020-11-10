@@ -396,6 +396,11 @@ input [type=submit] {
 		padding: 5px 10px;
 		width: 80%;*/
 	}
+	
+	/*Contact page */
+		.div-form-element{
+			display: flex;
+		}
 }
 /* media controller for Laptop and Desktop screen */
 @media only screen and (min-width: 1200px) {
@@ -465,5 +470,9 @@ input [type=submit] {
 		/*margin: 5px;
 		width: 80%
 		padding: 5px 10px;*/
+	}
+	
+	.div-form-element{
+		display: flex;
 	}
 }

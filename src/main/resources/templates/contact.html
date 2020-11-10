@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assignment 1: Shankar Ghimire</title>
     <link rel="stylesheet" href="./css/main.css">
+    
+    <!-- For FontAwesome -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script defer src="./js/contact.js"></script>
 </head>
 <body>
     <div class="container">
@@ -38,6 +41,21 @@
 			<div>
 				<h1>Contact Us </h1>
 				<h2>Under Construction</h2>
+			</div>
+			<div>
+				<form method="post" action="#" th:action="@{/processContact}" th:object="${user}" >
+					<div class="div-form-element">
+						<label>Name : </label>
+						<input name="user-name" id='user-name' type="text" placeholder="Full Name" th:field="*{userName}" />
+					</div>
+					<div class="div-form-element">
+						<label>Email : </label>
+						<input name="user-email" id='user-email' type="email" placeholder="Email" th:field="*{userEmail}" />
+					</div>
+					<div>
+						<button type='button' id='btn-contact' th:onclick="|window.location.href='/processContact'|" >Click</button>
+					</div>					
+				</form>
 			</div>
         </main>
         <footer>

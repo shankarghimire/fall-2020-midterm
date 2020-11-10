@@ -9,10 +9,12 @@ const userOption = document.getElementById('userOption');
 const errorElement = document.getElementById('error');
 const errorRowSize = document.getElementById('errorRowSize');
 const errorUserOption = document.querySelector('#errorUserOption');
+const btnContact = document.getElementById('btn-contact');
 
 window.addEventListener('load',(e)=>{
-    // alert("testing");
+    alert("testing");
 },false);
+
 formMatrix.addEventListener('submit',(e)=>{
     let messages = [];
     //if(rowSize.value < 1 ){
@@ -49,3 +51,8 @@ userOption.addEventListener('change',(e)=>{
 
 },false);
 
+
+btnContact.addEventListener('click',(e)=>{
+	console.log('Testing btnContact's click event...');
+	alert("testing btn-Contact...");
+},false);

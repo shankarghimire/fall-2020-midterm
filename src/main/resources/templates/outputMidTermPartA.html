@@ -1,26 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mid Term-Fall, 2020 : Shankar Ghimire</title>
-    
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script defer src="./js/midTerm.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mid Term-Fall, 2020 : Shankar Ghimire</title>
+
+<link rel="stylesheet" href="./css/main.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script defer src="./js/midTerm.js"></script>
 </head>
 <body>
-    <div class="container">
- 
-        <header>
-       		
-       		
-        	<h1>Shankar Ghimire</h1>
-        	
-        	<h3>Enterprise Java Development</h3>
-        
-        </header>
-        <!-- 
+	<div class="container">
+		<header>
+			<h1>Shankar Ghimire</h1>
+			<h3>Enterprise Java Development</h3>
+		</header>
+		<!-- 
         <nav>
         
             <ul>
@@ -32,66 +28,88 @@
              
         </nav>
         -->
-        <main>
+		<main>
 			<div>
-				<a href="/" class="btn-href">Go to Home</a> 
+				<a href="/" class="btn-href">Go to Home</a>
 				<h1>Output</h1>
 				<hr>
 			</div>
-			
 			<section class="search-section">
 				<div>
-				<p> Matrix Size:  <span th:text="${partASquareMatrix.rowSize}"></span></p>				
+					<p>
+						Matrix Size: <span th:text="${partASquareMatrix.rowSize}"></span>
+					</p>
 				</div>
-				<form id="form-matrix" name="form-matrix" action="#" th:action="@{/searchMatrix}" th:object="${partASquareMatrix}" method="post">
+				<form id="form-matrix" name="form-matrix" action="#"
+					th:action="@{/searchMatrix}" th:object="${partASquareMatrix}"
+					method="post">
 					<fieldset class="outer-fieldset">
 						<!-- <legend>Square Matrix:</legend> -->
-							<!--  <label for="rowSize">Row size:</label>-->
-							<input type="hidden" id="rowSize" name="rowSize" th:field="*{rowSize}"/>
-							<!--  <label for="matrixData">Matrix Data:</label>-->
-							<input type="hidden" id="matrixData" name="matrixData" size="200" th:field="*{listMatrix}"/>
+						<!--  <label for="rowSize">Row size:</label>-->
+						<input type="hidden" id="rowSize" name="rowSize"
+							th:field="*{rowSize}" />
+						<!--  <label for="matrixData">Matrix Data:</label>-->
+						<input type="hidden" id="matrixData" name="matrixData" size="200"
+							th:field="*{listMatrix}" />
 						<fieldset class="inner-fieldset">
 							<legend>Auto-generated Square Matrix</legend>
-							
-							<div id="div-labels">
-								
-								
-							</div>
-							
+							<div id="div-labels"></div>
 						</fieldset>
 						<fieldset class="inner-fieldset">
 							<legend>Search Box:</legend>
-						
-
-							<div style="display:flex; flex-direction: column;">
-								<label>Enter a word to search(Search is NOT case sensitive): </label> 
-								<input type="text" id="searchText" name="searchText" placeholder="Type the word to search" th:field="*{searchValue}">
+							<div style="display: flex; flex-direction: column;">
+								<label>Enter a word to search(Search is NOT case
+									sensitive): </label> <input type="text" id="searchText"
+									name="searchText" placeholder="Type the word to search"
+									th:field="*{searchValue}">
 							</div>
 						</fieldset>
 						<fieldset class="inner-fieldset">
 							<input type="submit" value="Search Word" id="btn-Search">
+							<!-- 
+							<input type="button" value="Click Me" id="btn1" th:onclick="|window.location.href='/searchMatrix'|" />
+							
+							<p><a href="/searchMatrix">Click Me </a></p>
+							 -->
 						</fieldset>
 					</fieldset>
+					 <input type="hidden" id="startRow" name="startRow" th:field="*{startRow}">
+					 <input type="hidden" id="startCol" name="startCol" th:field="*{startCol}">
+					 <input type="hidden" id="endRow" name="endRow" th:field="*{endRow}">
+					 <input type="hidden" id="endCol" name="endCol" th:field="*{endCol}">
 				</form>
 			</section>
 			<section class="search-section">
 				<div>
-					<h3>Search Result: <span style="color:#00ff00;"  th:if="${partASquareMatrix.searchResult}==true">FOUND!</span><span  style="color:#ff0000;" th:if="${partASquareMatrix.searchResult}!=true">Not Found!</span> </h3>
+				<!--  
+					<h3>
+						Search Result: <span style="color: #00ff00;"
+							th:if="${partASquareMatrix.searchResult}==true">FOUND!</span><span
+							style="color: #ff0000;"
+							th:if="${partASquareMatrix.searchResult}!=true">Not Found!</span>
+					</h3>
+					-->
+					<h3>
+						Search Result: <span style="color: #00ff00;" th:if="${partASquareMatrix.searchValueResult}==NotApplicalbe"></span>
+							<span style="color: #00ff00;" th:if="${partASquareMatrix.searchValueResult}==Found">Found!</span>
+							<span style="color: #ff0000;" th:if="${partASquareMatrix.searchValueResult}==NotFound">Not Found!</span>
+					</h3>
 				</div>
 			</section>
 	
-			</div>
-			<br><br>
-			<hr>
-		
-        </main>
-        <footer>
-            Copy right &copy;Shankar Ghimire
-        </footer>
-    </div>
-    
-    <!--  
+	<br>
+	<br>
+	<hr>
+
+	</main>
+	<footer> Copy right &copy;Shankar Ghimire </footer>
+	</div>
+
+	<!--  
     	<script src="./static/js/midTerm.js"></script>
     -->
+    <br>
+    <br>
+    <br>
 </body>
 </html>
